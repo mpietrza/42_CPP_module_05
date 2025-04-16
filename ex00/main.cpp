@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 18:31:26 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/04/14 18:36:56 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:09:19 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@ int main()
 {
 	try 
 	{
-		Bureaucrat b1("Alice", 2);
+		Bureaucrat b1("Troye", 2);
 		std::cout << b1 << std::endl;
 
 		b1.increaseGrade(1);
 		std::cout << b1 << std::endl;
 
 		b1.increaseGrade(1); // Should throw GradeTooHighException
+
+		std::cout << "QWERTYUIOP" << std::endl; // Just to check if the program is still running
 	} 
 	catch (const std::exception& e)
 	{
@@ -31,13 +33,15 @@ int main()
 
 	try
 	{
-		Bureaucrat b2("Bob", 140);
+		Bureaucrat b2("Billie", 140);
 		std::cout << b2 << std::endl;
 
 		b2.decreaseGrade(10);
 		std::cout << b2 << std::endl;
 
 		b2.decreaseGrade(1); // Should throw GradeTooLowException
+
+		std::cout << "QWERTYUIOP" << std::endl; // Just to check if the program is still running
 	}
 	catch (const std::exception& e) 
 	{
@@ -46,7 +50,10 @@ int main()
 
 	try 
 	{
+		std::cout << "Creating Charlie - a bureaucrat with a grade of 0:" << std::endl;
 		Bureaucrat b3("Charlie", 0); // Should throw GradeTooHighException
+
+		std::cout << "QWERTYUIOP" << std::endl; // Just to check if the program is still running
 	}
 	catch (const std::exception& e) 
 	{
@@ -55,7 +62,10 @@ int main()
 
 	try 
 	{
-		Bureaucrat b4("Diana", 151); // Should throw GradeTooLowException
+		std::cout << "Creating Lorde - a bureaucrat with a grade of 151:" << std::endl;
+		Bureaucrat b4("Lorde", 151); // Should throw GradeTooLowException
+
+		std::cout << "QWERTYUIOP" << std::endl; // Just to check if the program is still running
 	}
 	catch (const std::exception& e) 
 	{
