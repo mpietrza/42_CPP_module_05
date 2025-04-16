@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: milosz <milosz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:39:57 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/04/14 18:40:42 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:57:08 by milosz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,14 @@ Bureaucrat::Bureaucrat(): _name("generic"), _grade(42)
 }
 
 //parametrized constructor
-Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(std::string const &name, int grade): _name(name)
 {
+	if (grade < 1)
+		throw gradeTooHighException();
+	else if (grade > 150)
+		throw gradeTooLowException();
+	else
+		_grade = grade;
 	std::cout << "Bureaucrat class name: " << name << " with a grade: " << grade << " created with a parametrized constructor" << std::endl;
 }
 
