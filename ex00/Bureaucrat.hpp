@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:22:30 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/04/16 14:30:30 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/04/17 15:51:24 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ class Bureaucrat
 		void decreaseGrade(int number);
 		
 		//exceptions
-		class gradeTooHighException : public std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				const char* what() const throw();
 		};
 
-		class gradeTooLowException : public std::exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
 				const char* what() const throw();
