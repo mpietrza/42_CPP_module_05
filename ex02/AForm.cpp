@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 15:56:20 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/04/17 17:00:10 by mpietrza         ###   ########.fr       */
+/*   Created: 2025/05/07 13:06:55 by mpietrza          #+#    #+#             */
+/*   Updated: 2025/05/07 13:38:46 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 //default constructor
-Form::Form(): _name("generic"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
+AForm::AForm(): _name("generic"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
 {
-	std::cout << "Form created with a deafault constructor" << std::endl;
+	std::cout << "AForm created with a deafault constructor" << std::endl;
 }
 
 //parametrized constructor
-Form::Form(std::string const &name, int gradeToSign, int gradeToExecute) : _name(name), _isSinged(false)
+AForm::AForm(std::string const &name, int gradeToSign, int gradeToExecute) : _name(name), _isSinged(false)
 {
 	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw GradeTooHighException();
@@ -30,20 +30,20 @@ Form::Form(std::string const &name, int gradeToSign, int gradeToExecute) : _name
 		_gradeToSign = gradeToSign;
 		_gradeToExecute = gradeToExecute;
 	}
-	std::cout << "Form " << name << " with grade to sign: " << gradeToSign << " and grade to execute: " << gradeToExecute << " created with a parametrized constructor." << std::endl;
+	std::cout << "AForm " << name << " with grade to sign: " << gradeToSign << " and grade to execute: " << gradeToExecute << " created with a parametrized constructor." << std::endl;
 }
 
 //copy constructor
-Form::Form(const Form &other)
+AForm::AForm(const AForm &other)
 {
 	_isSigned = other._isSigned;
 	_gradeToSign = other._gradeToSign;
 	_gradeToExecute = other._gradeToExecute;
-	std::cout << "Form " << getName(this) << " copied" << std::endl;
+	std::cout << "AForm " << getName(this) << " copied" << std::endl;
 }
 
 //assignment operator
-Form &Form::operator=(const Form &other)
+AForm &AForm::operator=(const AForm &other)
 {
 	if (this != &other)
 	{
@@ -51,36 +51,36 @@ Form &Form::operator=(const Form &other)
 		_gradeToSign = other._gradeToSign;
 		_gradeToExecute = other._gradeToExecute;
 	}
-	std::cout << "Form assignment opearator called" << std::endl;
+	std::cout << "AForm assignment opearator called" << std::endl;
 	return *this;
 }
 
 //destructor
-Form::~Form();
+AForm::~AForm();
 {
-	std::cout << "Form destructor called" << std::endl;
+	std::cout << "AForm destructor called" << std::endl;
 }
 
 //name getter
-std::string Form::getName() const
+std::string AForm::getName() const
 {
 	return _name;
 }
 
 //gradeToSign getter
-int Form::getGradeToSign() const
+int AForm::getGradeToSign() const
 {
 	return _gradeToSign;
 }
 
 //gradeToExecute getter
-int Form::getGradeToExecute() const
+int AForm::getGradeToExecute() const
 {
 	return _gradeToExecute;
 }
 
 //member functions
-void Form::beSigned(Form *entity);
+void AForm::beSigned(AForm *entity);
 {
 	if (entity._isSigned == false)
 		entity._isSigned = true;
@@ -89,19 +89,19 @@ void Form::beSigned(Form *entity);
 }
 
 //exceptions
-const char* Form::GradeTooHighException::what()
+const char* AForm::GradeTooHighException::what()
 const throw()
 {
 	return "The grade is too high! The valid range is from 1 (the highest) to 150 (the lowest)."
 }
 
-const char* Form::GradeTooLowException::what()
+const char* AForm::GradeTooLowException::what()
 const throw()
 {
 	return "The grade is too low! The valid range is from 1 (the highest) to 150 (the lowest)."
 }
 
 //overload << operator
-std::ostream &operator<<(std::ostream &out, const Form &entity);
+std::ostream &operator<<(std::ostream &out, const AForm &entity);
 {
 	return out << entity.getName() << ", form signed (?): " entity.getIsSinged() << " with a grade needed to sign it " << entity,getGradeToSign() <<  " and a grade needed to execute it: " entity.getGradeToSign << std::endl:

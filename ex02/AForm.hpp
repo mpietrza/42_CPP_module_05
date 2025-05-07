@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 15:47:13 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/04/17 16:55:44 by mpietrza         ###   ########.fr       */
+/*   Created: 2025/05/07 13:04:25 by mpietrza          #+#    #+#             */
+/*   Updated: 2025/05/07 13:38:56 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef A_FORM_HPP
+# define A_FORM_HPP
 
 #include <iostream>
 
-class Form
+class AForm
 {
 	private:
 		const std::string _name;
 		bool _isSigned;
 		const int _gradeToSign;
 		const int _gradeToExecute;
+
 	public:
-		Form();
-		Form(std::string const &name, int gradeToSign, int gradeToExecute);
-		Form(const Form &other);
-		Form &operator=(const Form &other);
-		~Form();
+		AForm();
+		AForm(std::string const &name, int gradeToSign, int gradeToExecute);
+		AForm(const AForm &other);
+		AForm &operator=(const AForm &other);
+		virtual ~AForm();
 
 		//getters
 		std::string getName() const;
@@ -36,7 +37,7 @@ class Form
 		bool getIsSigned() const;
 
 		//member functions
-		void beSinged(Form *entity);
+		void beSinged(AForm *entity);
 
 		//exceptions
 		class GradeTooHighExecption : public std::exception
@@ -53,6 +54,6 @@ class Form
 };
 
 //overload << operator
-std::ostream &operator<<(std::ostream &out, const Form &entity);
+std::ostream &operator<<(std::ostream &out, const AForm &entity);
 
 #endif
