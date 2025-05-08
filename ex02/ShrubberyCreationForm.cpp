@@ -6,7 +6,7 @@
 /*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 14:24:58 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/07 14:42:15 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:21:08 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 145, 137), _target("generic target")
 {
-	std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
+	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target): AForm("ShrubberyCreationForm", 145, 137), _target(target)
@@ -27,7 +27,7 @@ ShrubberyCreationForm(const ShrubberyCreationForm &other): AForm(other), _target
 	std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
 }
 
-ShrubberyCreationForm ShrubberyCreationForm::&operator=(const ShrubberyCreationForm &other)
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
 	if (this != &other)
 	{
@@ -35,5 +35,38 @@ ShrubberyCreationForm ShrubberyCreationForm::&operator=(const ShrubberyCreationF
 		_target = other._target;
 	}
 	std::cout << "ShrubberyCreationForm copy assignment operator called" << std::endl;
-	return (*this);
+	return *this;
 }
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
+}
+	
+void ShrubberyCreationForm::beExecuted() const
+{
+	std::ofstream outfile(_target + "_shrubbery", std::ios_base::out);
+	if (!outfile.is_open())
+		std::cout << "Error: outfile error!" << std::endl;
+	else
+	{
+		outfile << "    &&&  &&&\n";
+		"  &&&&&\\/&&#&&\n";
+		" &&&#&&&#&&&&&\n";
+		" &&#&&&&&&&&\n";
+		"   &&&||&#&\n";
+		"      ||\n";
+		"      ||\n";
+		"     /__\\\n";
+		outfile.close();
+	}
+}
+
+std::string ShrubberyCreationForm::getTarget() const
+{
+	return (_target)
+}
+
+std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &form)
+{
+	return out << form.getTarget + " " << form.getName() << "needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");

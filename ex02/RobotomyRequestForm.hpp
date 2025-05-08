@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 13:12:39 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/08 16:41:31 by mpietrza         ###   ########.fr       */
+/*   Created: 2025/05/08 16:39:43 by mpietrza          #+#    #+#             */
+/*   Updated: 2025/05/08 17:27:27 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERY_CREATION_FORM_HPP
-# define SHRUBBERY_CREATION_FORM_HPP
+#ifndef ROBOTOMY_REQUEST_FORM_HPP
+# define ROBOTOMY_REQUEST_FORM_HPP
 
 #include "AForm.hpp"
 #include <string>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 
-class ShrubberyCreationForm: public AForm
+class RobotomyRequestForm: public AForm
 {
 	private:
 		std::string _target;
 
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(std::string const &target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &other);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
-		~ShrubberyCreationForm();
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string const &target);
+		RobotomyRequestForm(const RobotomyRequestForm &other);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+		~RobotomyRequestForm();
 
 		void beExecuted() const;
 
@@ -36,6 +38,6 @@ class ShrubberyCreationForm: public AForm
 };
 
 //overload << operator
-std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &form);
+std::ostream &operator<<(std::ostream &out, const RobotomyRequestForm &form);
 
 #endif
