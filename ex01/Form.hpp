@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:47:13 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/04/17 16:55:44 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/09 15:49:54 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ class Form
 		bool getIsSigned() const;
 
 		//member functions
-		void beSinged(Form *entity);
+		void beSigned(Form *entity);
 
 		//exceptions
-		class GradeTooHighExecption : public std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				const char * what() const throw();

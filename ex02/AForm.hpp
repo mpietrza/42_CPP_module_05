@@ -6,7 +6,7 @@
 /*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:04:25 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/07 13:38:56 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/09 12:48:41 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,33 @@ class AForm
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
 		bool getIsSigned() const;
+		virtual std::string getTarget() const = 0;
 
 		//member functions
-		void beSinged(AForm *entity);
+		void sign(AForm *entity);
+		void execute(Bureaucrat const & executor) const;
+		virtual void executeEntity() const = 0;
 
 		//exceptions
-		class GradeTooHighExecption : public std::exception
+		class GradeTooHighExecption: public std::exception
 		{
 			public:
 				const char * what() const throw();
 		};
 
-		class GradeTooLowException : public std::exception
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+
+		class AlreadySignedException: public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+		
+		class NotSignedException: public std::exception
 		{
 			public:
 				const char* what() const throw();

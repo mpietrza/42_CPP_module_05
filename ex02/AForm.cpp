@@ -6,7 +6,7 @@
 /*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:06:55 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/07 13:38:46 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/09 12:58:51 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,22 @@ int AForm::getGradeToExecute() const
 }
 
 //member functions
-void AForm::beSigned(AForm *entity);
+void AForm::sign(AForm *entity);
 {
 	if (entity._isSigned == false)
 		entity._isSigned = true;
 	else
 		std::cout << "The form: " << name << " is already signed" << std::endl;
+}
+
+void AForm::execute(Bureaucrat const & executor) const
+{
+	if (!_isSigned)
+		throw NotSignedException();
+	else if (_execGrade < executor.getGrade())
+		throw GradeTooLowException();
+	else
+		this->executeEntity();
 }
 
 //exceptions
@@ -99,6 +109,18 @@ const char* AForm::GradeTooLowException::what()
 const throw()
 {
 	return "The grade is too low! The valid range is from 1 (the highest) to 150 (the lowest)."
+}
+
+const char* AForm::AlreadySignedException::what()
+const throw()
+{
+	return "The Form is already signed! Forms can only be signed only once!"
+}
+
+const char* AForm::NotSignedException::what()
+const throw()
+{
+	return "The Form is not signed yet! Only signed forms can be executed!"
 }
 
 //overload << operator

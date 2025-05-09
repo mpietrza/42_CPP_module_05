@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:39:57 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/04/17 16:36:52 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/09 14:30:38 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,31 @@ void Bureaucrat::decreaseGrade(int number)
 		throw GradeTooHighException();
 	else
 		_grade += number;
+}
+
+void Bureaucrat::signForm(AForm &form)
+{
+	try
+	{
+		form.sign(*this);
+		std::cout << _name << " has signed a form " << form.getName() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << _name << " hasn't signed a form " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed a form " << form.getName() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << _name << "couldn't execute a form " << form.getName() << " because " << e.what() << std::endl;			}
 }
 
 //exceptions

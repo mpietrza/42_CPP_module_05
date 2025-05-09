@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:22:30 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/04/17 15:51:48 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/09 13:48:05 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ class Bureaucrat
 		void increaseGrade(int number);
 		void decreaseGrade(int number);
 		
+		void signForm(AForm &form);
+		void executeForm(AForm &form);
+
 		//exceptions
 		class GradeTooHighException : public std::exception
 		{

@@ -6,7 +6,7 @@
 /*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 16:59:32 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/08 17:41:11 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/09 12:02:00 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const &target): AForm("Robo
 	std::cout << "RobotomyRequestForm parametric constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other): AForm(other), _target(other.target)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other): AForm(other), _target(other._target)
 {
 	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 }
@@ -58,6 +58,6 @@ std::string RobotomyRequestForm::getTarget() const
 
 std::ostream &operator<<(std::ostream &out, const RobotomyRequestForm &form)
 {
-	return out << form.getTarget + " " << form.getName() << "needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");
+	return out << form.getTarget + " " << form.getName() << " needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");
 }
 

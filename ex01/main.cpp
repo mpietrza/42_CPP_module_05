@@ -6,11 +6,12 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 18:31:26 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/04/16 15:09:19 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/09 15:35:48 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
@@ -72,5 +73,102 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 
-	return 0;
+    try
+    {
+        std::cout << "\n=== Form Tests: Valid signing ===" << std::endl;
+        Form f1("F1", 50, 20); 
+        Bureaucrat b1("Alice", 49);
+        b1.signForm(f1);
+        std::cout << f1 << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    try
+    {
+        std::cout << "\n=== Form Tests: Grade too low to sign ===" << std::endl;
+        Form f2("F2", 10, 5); 
+        Bureaucrat b2("Bob", 20);
+        b2.signForm(f2);
+        std::cout << f2 << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    // Additional Form tests
+
+    try
+    {
+        std::cout << "\n=== Form Tests: Form grade too high ===" << std::endl;
+        Form f3("F3", 0, 10); // Should throw GradeTooHighException
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    try
+    {
+        std::cout << "\n=== Form Tests: Form grade too low ===" << std::endl;
+        Form f4("F4", 151, 10); // Should throw GradeTooLowException
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    try
+    {
+        std::cout << "\n=== Form Tests: Execute grade too high ===" << std::endl;
+        Form f5("F5", 10, 0); // Should throw GradeTooHighException
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    try
+    {
+        std::cout << "\n=== Form Tests: Execute grade too low ===" << std::endl;
+        Form f6("F6", 10, 151); // Should throw GradeTooLowException
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    try
+    {
+        std::cout << "\n=== Form Tests: Double signing ===" << std::endl;
+        Form f7("F7", 100, 50);
+        Bureaucrat b3("Clara", 50);
+        b3.signForm(f7);
+        b3.signForm(f7); // Should not throw, but should indicate already signed
+        std::cout << f7 << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    try
+    {
+        std::cout << "\n=== Form Tests: Multiple bureaucrats signing ===" << std::endl;
+        Form f8("F8", 100, 50);
+        Bureaucrat b4("Dylan", 120);
+        Bureaucrat b5("Emma", 90);
+        b4.signForm(f8); // Should fail
+        b5.signForm(f8); // Should succeed
+        std::cout << f8 << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    return 0;
 }

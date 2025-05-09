@@ -6,7 +6,7 @@
 #    By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/14 18:29:35 by mpietrza          #+#    #+#              #
-#    Updated: 2025/04/16 15:45:49 by mpietrza         ###   ########.fr        #
+#    Updated: 2025/05/09 15:30:17 by mpietrza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,11 @@ W = "\033[37m"
 
 #SOURCES
 SRC		= main.cpp \
-		  Bureaucrat.cpp 
+		  Bureaucrat.cpp \
+		  AForm.cpp \
+		  ShrubberyCreationForm.cpp \
+		  RobotomyRequestForm.cpp \
+		  PresidentialPardonForm.cpp
 		  
 OBJS	= $(addprefix $(DIR_OBJS), $(SRC:.cpp=.o))
 
