@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 14:24:58 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/23 15:04:34 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:01:01 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,19 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	
 void ShrubberyCreationForm::beExecuted() const
 {
-	std::ofstream outfile(_target + "_shrubbery", std::ios_base::out);
+	std::ofstream outfile((_target + "_shrubbery").c_str(), std::ios_base::out);
 	if (!outfile.is_open())
 		std::cout << "Error: outfile error!" << std::endl;
 	else
 	{
 		outfile << "    &&&  &&&\n";
-		"  &&&&&\\/&&#&&\n";
-		" &&&#&&&#&&&&&\n";
-		" &&#&&&&&&&&\n";
-		"   &&&||&#&\n";
-		"      ||\n";
-		"      ||\n";
-		"     /__\\\n";
+		outfile << "  &&&&&\\/&&#&&\n";
+		outfile << " &&&#&&&#&&&&&\n";
+		outfile << " &&#&&&&&&&&\n";
+		outfile << "   &&&||&#&\n";
+		outfile << "      ||\n";
+		outfile << "      ||\n";
+		outfile << "     /__\\\n";
 		outfile.close();
 	}
 }

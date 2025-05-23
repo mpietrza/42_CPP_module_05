@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:06:55 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/23 15:20:30 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:03:26 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,12 @@ int AForm::getGradeToSign() const
 int AForm::getGradeToExecute() const
 {
 	return _gradeToExecute;
+}
+
+//isSigned getter
+bool AForm::getIsSigned() const
+{
+	return _isSigned;
 }
 
 //member functions

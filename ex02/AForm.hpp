@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:04:25 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/23 15:14:14 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:57:41 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class AForm
 {
 	private:
