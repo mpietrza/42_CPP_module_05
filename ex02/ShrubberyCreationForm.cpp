@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 14:24:58 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/08 17:21:08 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:04:34 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target): AForm("
 	std::cout << "ShrubberyCreationForm parametric constructor called - target: " << target << std::endl;
 }
 
-ShrubberyCreationForm(const ShrubberyCreationForm &other): AForm(other), _target(other.target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other): AForm(other), _target(other._target)
 {
 	std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
 }
@@ -64,9 +64,10 @@ void ShrubberyCreationForm::beExecuted() const
 
 std::string ShrubberyCreationForm::getTarget() const
 {
-	return (_target)
+	return _target;
 }
 
 std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &form)
 {
-	return out << form.getTarget + " " << form.getName() << "needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");
+	return out << form.getTarget() + " " << form.getName() << "needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");
+}

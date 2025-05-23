@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:04:25 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/09 12:48:41 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:14:14 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define A_FORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 class AForm
 {
@@ -38,12 +39,12 @@ class AForm
 		virtual std::string getTarget() const = 0;
 
 		//member functions
-		void sign(AForm *entity);
+		void sign();
 		void execute(Bureaucrat const & executor) const;
 		virtual void executeEntity() const = 0;
 
 		//exceptions
-		class GradeTooHighExecption: public std::exception
+		class GradeTooHighException: public std::exception
 		{
 			public:
 				const char * what() const throw();

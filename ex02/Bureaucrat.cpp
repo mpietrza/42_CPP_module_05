@@ -6,11 +6,12 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:39:57 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/09 14:30:38 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:21:48 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 //default constructor
 Bureaucrat::Bureaucrat(): _name("generic"), _grade(42)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 16:59:32 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/09 12:02:00 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:04:53 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ std::string RobotomyRequestForm::getTarget() const
 
 std::ostream &operator<<(std::ostream &out, const RobotomyRequestForm &form)
 {
-	return out << form.getTarget + " " << form.getName() << " needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");
+	return out << form.getTarget() + " " << form.getName() << " needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");
 }
 

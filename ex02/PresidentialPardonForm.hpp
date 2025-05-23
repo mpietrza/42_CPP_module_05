@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 11:22:39 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/09 11:33:21 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/23 14:59:38 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 #include <fstream>
 
-class PresidentialPardonForm
+class PresidentialPardonForm : public AForm
 {
 	private:
 		std::string _target;
