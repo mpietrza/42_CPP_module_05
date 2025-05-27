@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:39:57 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/09 15:39:33 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:56:20 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //default constructor
 Bureaucrat::Bureaucrat(): _name("generic"), _grade(42)
 {
-//	std::cout << "Bureaucrat created with a default constructor" << std::endl;
+	std::cout << "Bureaucrat created with a default constructor" << std::endl;
 }
 
 //parametrized constructor
@@ -27,14 +27,14 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade): _name(name)
 		throw GradeTooLowException();
 	else
 		_grade = grade;
-//	std::cout << "Bureaucrat name: " << name << " with a grade: " << grade << " created with a parametrized constructor" << std::endl;
+	std::cout << "Bureaucrat name: " << name << " with a grade: " << grade << " created with a parametrized constructor" << std::endl;
 }
 
 //copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
 {
 	_grade = other._grade;
-//	std::cout << "Bureaucrat copied" << std::endl;
+	std::cout << "Bureaucrat copied" << std::endl;
 }
 
 //assigment operator
@@ -42,14 +42,14 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
 		_grade = other._grade;	
-//	std::cout << "Bureaucrat assigment operator called" << std::endl;
+	std::cout << "Bureaucrat assigment operator called" << std::endl;
 	return *this;
 }
 
 //destructor
 Bureaucrat::~Bureaucrat()
 {
-//	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 //name getter
@@ -70,7 +70,10 @@ void Bureaucrat::increaseGrade(int number)
 	if (_grade - number < 1)
 		throw GradeTooLowException();
 	else
+	{
 		_grade -= number;
+		std::cout << _name << " has increased his grade to " << _grade << std::endl;
+	}
 }
 
 void Bureaucrat::decreaseGrade(int number)
@@ -78,7 +81,10 @@ void Bureaucrat::decreaseGrade(int number)
 	if (_grade + number > 150)
 		throw GradeTooHighException();
 	else
+	{
 		_grade += number;
+		std::cout << _name << " has decreased his grade to " << _grade << std::endl;
+	}
 }
 
 void Bureaucrat::signForm(Form &form)

@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:39:57 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/04/17 17:00:32 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:46:46 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ void Bureaucrat::increaseGrade(int number)
 	if (_grade - number < 1)
 		throw GradeTooLowException();
 	else
+	{
 		_grade -= number;
+		std::cout << _name << " has increased his grade to " << _grade << std::endl;
+	}
 }
 
 void Bureaucrat::decreaseGrade(int number)
@@ -78,7 +81,10 @@ void Bureaucrat::decreaseGrade(int number)
 	if (_grade + number > 150)
 		throw GradeTooHighException();
 	else
+	{
 		_grade += number;
+		std::cout << _name << " has decreased his grade to " << _grade << std::endl;
+	}
 }
 
 //exceptions

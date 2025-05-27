@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 15:56:20 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/09 15:48:38 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:55:32 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,29 +75,37 @@ bool Form::getIsSigned() const
 }
 
 //member functions
-void Form::beSigned(Form *entity)
+void Form::beSigned(const Bureaucrat &b)
 {
-	if (entity._isSigned == false)
-		entity._isSigned = true;
-	else
-		std::cout << "The form: " << _name << " is already signed" << std::endl;
+	if (_isSigned == true)
+		throw AlreadySignedException();
+	if (b.getGrade() > _gradeToSign)
+		throw GradeTooLowException();
+	_isSigned = true;
+	std::cout << "The form: " << _name << " has been signed" << std::endl;
 }
 
 //exceptions
 const char* Form::GradeTooHighException::what()
 const throw()
 {
-	return "The grade is too high! The valid range is from 1 (the highest) to 150 (the lowest)."
+	return "The grade is too high! The valid range is from 1 (the highest) to 150 (the lowest).";
 }
 
 const char* Form::GradeTooLowException::what()
 const throw()
 {
-	return "The grade is too low! The valid range is from 1 (the highest) to 150 (the lowest)."
+	return "The grade is too low! The valid range is from 1 (the highest) to 150 (the lowest).";
+}
+
+const char* Form::AlreadySignedException::what()
+const throw()
+{
+	return "The Form is already signed! Forms can only be signed only once!";
 }
 
 //overload << operator
 std::ostream &operator<<(std::ostream &out, const Form &entity)
 {
-	return out << entity.getName() << ", form signed (?): " entity.getisSigned() << " with a grade needed to sign it " << entity,getGradeToSign() <<  " and a grade needed to execute it: " entity.getGradeToSign << std::endl:
+	return out << entity.getName() << ", form signed (?): " << (entity.getIsSigned() ? "yes" : "no") << " with a grade needed to sign it " << entity.getGradeToSign() <<  " and a grade needed to execute it: " << entity.getGradeToExecute() << std::endl;
 }

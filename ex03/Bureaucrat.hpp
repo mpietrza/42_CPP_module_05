@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:22:30 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/27 16:57:06 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:58:45 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form; // Forward declaration to avoid circular dependency
+class AForm;
 class Bureaucrat
 {
 	private:
@@ -37,7 +37,8 @@ class Bureaucrat
 		void increaseGrade(int number);
 		void decreaseGrade(int number);
 		
-		void signForm(Form &form);
+		void signForm(AForm &form);
+		void executeForm(AForm &form);
 
 		//exceptions
 		class GradeTooHighException : public std::exception
