@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 18:31:26 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/27 17:24:41 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:43:22 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,13 +178,23 @@ int main()
 	{
 		Bureaucrat signer("Signer", 50);
 		std::cout << std::endl;
+		std::cout << signer << std::endl;
+		std::cout << std::endl;
 		Bureaucrat executor("Executor", 5);
+		std::cout << std::endl;
+		std::cout << executor << std::endl;
 		std::cout << std::endl;
 		ShrubberyCreationForm shrub("Garden");
 		std::cout << std::endl;
+		std::cout << shrub << std::endl;
+		std::cout << std::endl;
 		RobotomyRequestForm robo("RoboTarget");
 		std::cout << std::endl;
+		std::cout << robo << std::endl;
+		std::cout << std::endl;
 		PresidentialPardonForm pardon("Criminal");
+		std::cout << std::endl;
+		std::cout << pardon << std::endl;
 		std::cout << std::endl;
 
 		signer.signForm(shrub);

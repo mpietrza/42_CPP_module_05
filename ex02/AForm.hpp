@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:04:25 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/27 17:20:09 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:37:17 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+
+#define GRAY "\033[90m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define BLUE "\033[34m"
+#define RESET "\033[0m"
 
 class Bureaucrat; // Forward declaration to avoid circular dependency
 class AForm

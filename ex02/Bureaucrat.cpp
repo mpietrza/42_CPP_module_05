@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:39:57 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/27 17:21:29 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:48:06 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 //destructor
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << GRAY << "Bureaucrat destructor called" << RESET << std::endl;
 }
 
 //name getter
@@ -97,7 +97,7 @@ void Bureaucrat::signForm(AForm &form)
 	}
 	catch(std::exception &e)
 	{
-		std::cout << _name << " hasn't signed a form " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << RED << _name << " hasn't signed a form " << form.getName() << " because " << e.what() << RESET << std::endl;
 	}
 }
 
@@ -110,22 +110,22 @@ void Bureaucrat::executeForm(AForm &form)
 	}
 	catch(std::exception &e)
 	{
-		std::cout << _name << " couldn't execute a form " << form.getName() << " because " << e.what() << std::endl;			}
+		std::cout << RED << _name << " couldn't execute a form " << form.getName() << " because " << e.what() << RESET << std::endl;			}
 }
 
 //exceptions
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "The grade is too high! The valid range is from 1 (the highest) to 150 (the lowest).";
+	return (RED "The grade is too high! The valid range is from 1 (the highest) to 150 (the lowest)." RESET);
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "The grade is too low! The valid range is from 1 (the highest) to 150 (the lowest).";
+	return (RED "The grade is too low! The valid range is from 1 (the highest) to 150 (the lowest)." RESET);
 }
 
 //overload << operator
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &entity)
 {
-	return out << entity.getName() << ", bureaucrat grade " << entity.getGrade() << ".";
+	return out << BLUE << entity.getName() << ", bureaucrat grade " << entity.getGrade() << "." << RESET;
 }

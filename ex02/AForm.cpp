@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:06:55 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/27 17:20:35 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:43:18 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //default constructor
 AForm::AForm(): _name("generic"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
 {
-	std::cout << "AForm created with a deafault constructor" << std::endl;
+	std::cout << GRAY << "AForm created with a deafault constructor" << RESET << std::endl;
 }
 
 //parametrized constructor
@@ -25,13 +25,13 @@ AForm::AForm(std::string const &name, int gradeToSign, int gradeToExecute) : _na
 		throw GradeTooHighException();
 	else if (gradeToSign > 150 || gradeToExecute > 150)
 		throw GradeTooLowException();
-	std::cout << "AForm " << name << " with grade to sign: " << gradeToSign << " and grade to execute: " << gradeToExecute << " created with a parametrized constructor." << std::endl;
+	std::cout << GRAY << "AForm " << name << " with grade to sign: " << gradeToSign << " and grade to execute: " << gradeToExecute << " created with a parametrized constructor." << RESET << std::endl;
 }
 
 //copy constructor
 AForm::AForm(const AForm &other) : _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
-	std::cout << "AForm " << getName() << " copied" << std::endl;
+	std::cout << GRAY << "AForm " << getName() << " copied" << RESET << std::endl;
 }
 
 //assignment operator
@@ -39,14 +39,14 @@ AForm &AForm::operator=(const AForm &other)
 {
 	if (this != &other)
 		_isSigned = other._isSigned;
-	std::cout << "AForm assignment opearator called" << std::endl;
+	std::cout << GRAY << "AForm assignment opearator called" << RESET << std::endl;
 	return *this;
 }
 
 //destructor
 AForm::~AForm()
 {
-	std::cout << "AForm destructor called" << std::endl;
+	std::cout << GRAY << "AForm destructor called" << RESET << std::endl;
 }
 
 //name getter
@@ -122,5 +122,5 @@ const throw()
 //overload << operator
 std::ostream &operator<<(std::ostream &out, const AForm &entity)
 {
-	return out << entity.getName() << ", form signed (?): " << (entity.getIsSigned() ? "yes" : "no") << " with a grade needed to sign it " << entity.getGradeToSign() <<  " and a grade needed to execute it: " << entity.getGradeToExecute() << std::endl;
+	return out << GREEN << entity.getName() << ", form signed (?): " << (entity.getIsSigned() ? "yes" : "no") << " with a grade needed to sign it " << entity.getGradeToSign() <<  " and a grade needed to execute it: " << entity.getGradeToExecute() << RESET << std::endl;
 }
