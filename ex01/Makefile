@@ -6,11 +6,11 @@
 #    By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/14 18:29:35 by mpietrza          #+#    #+#              #
-#    Updated: 2025/05/09 15:31:42 by mpietrza         ###   ########.fr        #
+#    Updated: 2025/05/28 13:02:08 by mpietrza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucratic_forms
+NAME = Form_up
 CC = c++
 CFLAGS = -Wall -Wextra -Werror #-g -O0
 STD = -std=c++98
@@ -58,19 +58,19 @@ $(DIR_OBJS):
 
 $(NAME): $(OBJS) Makefile
 	$(CC) $(CFLAGS) $(STD) $(OBJS) -o $(NAME)
-	@echo $(G)Bureaucratic_forms compiled successfully! $(DEF_COLOR)
+	@echo $(G)Form_up compiled successfully! $(DEF_COLOR)
 
 clean:
 	@echo $(GRAY)
 	$(RM) $(OBJS) $(DEPS) $(DIR_OBJS)
-	@echo $(G)Bureaucratic_forms object files erased successfully! $(DEF_COLOR)
+	@echo $(G)Form_up object files erased successfully! $(DEF_COLOR)
 
 fclean: clean
 	@echo $(GRAY)
 	$(RM) $(NAME)
-	@echo $(G)Bureaucratic_forms executable files erased succesfully! $(DEF_COLOR)
+	@echo $(G)Form_up executable files erased succesfully! $(DEF_COLOR)
 
 re: fclean all
-	@echo $(G)Erased and recompiled every file of Bureaucratic_forms successfully! $(DEF_COLOR)
+	@echo $(G)Erased and recompiled every file of Form_up successfully! $(DEF_COLOR)
 
 .PHONY: all clean fclean re

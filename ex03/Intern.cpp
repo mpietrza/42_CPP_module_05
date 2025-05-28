@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpietrza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 17:50:58 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/27 18:00:52 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 13:34:05 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+
+
+
 
 //default constructor
 Intern::Intern()
@@ -21,18 +24,22 @@ Intern::Intern()
 //copy constructor
 Intern::Intern(const Intern &other)
 {
-	std::cout << "Intern copied" << std::endl;
+	*this = other; // Use assignment operator to copy
+	std::cout << "Intern copy constructor called" << std::endl;
+
 }
 
 //assignment operator
 Intern &Intern::operator=(const Intern &other)
 {
+	if (this == &other)
+		return *this; // Handle self-assignment
 	std::cout << "Intern assignment operator called" << std::endl;
 	return *this;
 }
 
 //destructor
-Itern::~Intern()
+Intern::~Intern()
 {
 	std::cout << "Intern destructor called" << std::endl;
 }
@@ -40,5 +47,34 @@ Itern::~Intern()
 //member functions:
 AForm *Intern::makeForm(std::string formName, std::string formTarget)
 {
-	if (formName
+	AForm *(Intern::*func[3])(std::string) = {&Intern::makeShrubbery, &Intern::makeRobotomy, &Intern::makePresidential};
+	std::string forms[3] = {"shrubberry creation", "robotomy request", "presidential pardon"};
+	for (int i = 0; i < 3; i++)
+		if (formName == forms[i])
+			return (this->*func[i])(formTarget);
+	std::cout << "Intern couldn't crate a Form " << formName + "." << std::endl;
+	throw FormNameDoesNotExistException();
+}
+
+AForm *Intern::makeShrubbery(std::string formTarget)
+{
+	std::cout << "Intern has created a ShrubberyCreationForm for " << formTarget << std::endl;
+	return new ShrubberyCreationForm(formTarget);
+}
+
+AForm *Intern::makeRobotomy(std::string formTarget)
+{
+	std::cout << "Intern has created a RobotomyRequestForm for " << formTarget << std::endl;
+	return new RobotomyRequestForm(formTarget);
+}
+
+AForm *Intern::makePresidential(std::string formTarget)
+{
+	std::cout << "Intern has created a PresidentialPardonForm for " << formTarget << std::endl;
+	return new PresidentialPardonForm(formTarget);
+}
+
+const char *Intern::FormNameDoesNotExistException::what() const throw()
+{
+	return ("There is no such form.");
 }
