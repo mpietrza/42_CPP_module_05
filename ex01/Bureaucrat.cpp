@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:39:57 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/27 16:56:20 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:33:00 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //default constructor
 Bureaucrat::Bureaucrat(): _name("generic"), _grade(42)
 {
-	std::cout << "Bureaucrat created with a default constructor" << std::endl;
+	std::cout << GRAY << "Bureaucrat created with a default constructor" << RESET << std::endl;
 }
 
 //parametrized constructor
@@ -27,14 +27,14 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade): _name(name)
 		throw GradeTooLowException();
 	else
 		_grade = grade;
-	std::cout << "Bureaucrat name: " << name << " with a grade: " << grade << " created with a parametrized constructor" << std::endl;
+	std::cout << GRAY << "Bureaucrat name: " << name << " with a grade: " << grade << " created with a parametrized constructor" << RESET << std::endl;
 }
 
 //copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
 {
 	_grade = other._grade;
-	std::cout << "Bureaucrat copied" << std::endl;
+	std::cout << GRAY << "Bureaucrat copy constructor called" << RESET << std::endl;
 }
 
 //assigment operator
@@ -42,14 +42,14 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
 		_grade = other._grade;	
-	std::cout << "Bureaucrat assigment operator called" << std::endl;
+	std::cout << GRAY << "Bureaucrat assigment operator called" << RESET << std::endl;
 	return *this;
 }
 
 //destructor
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << GRAY << "Bureaucrat destructor called" << RESET << std::endl;
 }
 
 //name getter
@@ -114,5 +114,5 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 //overload << operator
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &entity)
 {
-	return out << entity.getName() << ", bureaucrat grade " << entity.getGrade() << ".";
+	return out << BLUE << entity.getName() << ", bureaucrat grade " << entity.getGrade() << "." << RESET;
 }

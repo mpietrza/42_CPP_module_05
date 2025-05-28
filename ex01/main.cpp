@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 18:31:26 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/27 17:35:44 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:32:20 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int main()
 		std::cout << "\n=== Form Tests: Valid signing ===" << std::endl;
 		Form f1("F1", 50, 20); 
 		Bureaucrat b1("Alice", 49);
+		std::cout << b1 << std::endl;
 		b1.signForm(f1);
 		std::cout << f1 << std::endl;
 	}
@@ -91,6 +92,7 @@ int main()
 		std::cout << "\n=== Form Tests: Grade too low to sign ===" << std::endl;
 		Form f2("F2", 10, 5); 
 		Bureaucrat b2("Bob", 20);
+		std::cout << b2 << std::endl;
 		b2.signForm(f2);
 		std::cout << f2 << std::endl;
 	}
