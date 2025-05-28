@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 16:59:32 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/23 15:04:53 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:49:38 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45), _target("generic target")
 {
-	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
+	std::cout << GRAY "RobotomyRequestForm default constructor called" << RESET << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target): AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
-	std::cout << "RobotomyRequestForm parametric constructor called" << std::endl;
+	std::cout << GRAY << "RobotomyRequestForm parametric constructor called" << RESET << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other): AForm(other), _target(other._target)
 {
-	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
+	std::cout << GRAY << "RobotomyRequestForm copy constructor called" << RESET << std::endl;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
@@ -34,13 +34,13 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 		AForm::operator=(other);
 		_target = other._target;
 	}
-	std::cout << "RobotomyRequestForm copy assignment operator called" << std::endl;
+	std::cout << GRAY << "RobotomyRequestForm copy assignment operator called" << RESET << std::endl;
 	return *this;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "RobotomyRequestForm destructor called" << std::endl;
+	std::cout << GRAY << "RobotomyRequestForm destructor called" << RESET << std::endl;
 }
 
 void RobotomyRequestForm::beExecuted() const
@@ -58,6 +58,6 @@ std::string RobotomyRequestForm::getTarget() const
 
 std::ostream &operator<<(std::ostream &out, const RobotomyRequestForm &form)
 {
-	return out << form.getTarget() + " " << form.getName() << " needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");
+	return out << YELLOW << form.getTarget() + " " << form.getName() << " needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");
 }
 

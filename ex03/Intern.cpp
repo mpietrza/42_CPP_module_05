@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 17:50:58 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/28 15:16:05 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:54:31 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ AForm *Intern::makeForm(std::string formName, std::string formTarget)
 	for (int i = 0; i < 3; i++)
 		if (formName == forms[i])
 			return (this->*func[i])(formTarget);
-	std::cout << "Intern couldn't crate a Form " << formName + "." << std::endl;
+	std::cout << RED << "Intern couldn't crate a Form " << formName + "." << RESET << std::endl;
 	throw FormNameDoesNotExistException();
 }
 
@@ -73,5 +73,5 @@ AForm *Intern::makePresidential(std::string formTarget)
 
 const char *Intern::FormNameDoesNotExistException::what() const throw()
 {
-	return ("There is no such form.");
+	return (RED "There is no such form." RESET);
 }

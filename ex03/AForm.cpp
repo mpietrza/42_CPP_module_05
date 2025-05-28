@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:06:55 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/28 15:11:05 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:43:18 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,5 @@ const throw()
 //overload << operator
 std::ostream &operator<<(std::ostream &out, const AForm &entity)
 {
-	return out << entity.getName() << ", form signed (?): " << (entity.getIsSigned() ? "yes" : "no") << " with a grade needed to sign it " << entity.getGradeToSign() <<  " and a grade needed to execute it: " << entity.getGradeToExecute() << std::endl;
+	return out << GREEN << entity.getName() << ", form signed (?): " << (entity.getIsSigned() ? "yes" : "no") << " with a grade needed to sign it " << entity.getGradeToSign() <<  " and a grade needed to execute it: " << entity.getGradeToExecute() << RESET << std::endl;
 }

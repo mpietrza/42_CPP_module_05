@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 11:33:42 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/23 15:01:14 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:45:07 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 25, 5), _target("generic target")
 {
-	std::cout << "PresidentialPardonForm default constructor called" << std::endl;
+	std::cout << GRAY << "PresidentialPardonForm default constructor called" << RESET << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string const &target): AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
-	std::cout << "PresidentialPardonForm parametric constructor called" << std::endl;
+	std::cout << GRAY << "PresidentialPardonForm parametric constructor called" << RESET << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other): AForm(other), _target(other._target)
 {
-	std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
+	std::cout << GRAY << "PresidentialPardonForm copy constructor called" << RESET << std::endl;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm  &other)
@@ -34,13 +34,13 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 		AForm::operator=(other);
 		_target = other._target;
 	}
-	std::cout << "PresidentialPardonForm copy assignment operator called" << std::endl;
+	std::cout << GRAY << "PresidentialPardonForm copy assignment operator called" << RESET <<  std::endl;
 	return *this;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << "PresidentialPardonForm destructor called" << std::endl;
+	std::cout << GRAY << "PresidentialPardonForm destructor called" << RESET << std::endl;
 }
 
 void PresidentialPardonForm::beExecuted() const
@@ -55,5 +55,5 @@ std::string PresidentialPardonForm::getTarget() const
 
 std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &form)
 {
-	return out << form.getTarget() + " " << form.getName() << " needs a grade " << form.getGradeToSign() << " to be signed, and a grade "<< form.getGradeToExecute() << " to be executed eand it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");
+	return out << YELLOW << form.getTarget() + " " << form.getName() << " needs a grade " << form.getGradeToSign() << " to be signed, and a grade "<< form.getGradeToExecute() << " to be executed eand it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.") << RESET;
 }

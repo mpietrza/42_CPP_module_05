@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 14:24:58 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/23 16:01:01 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:47:09 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 145, 137), _target("generic target")
 {
-	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
+	std::cout << GRAY << "ShrubberyCreationForm default constructor called" << RESET << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target): AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
-	std::cout << "ShrubberyCreationForm parametric constructor called - target: " << target << std::endl;
+	std::cout << GRAY << "ShrubberyCreationForm parametric constructor called - target: " << target << RESET << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other): AForm(other), _target(other._target)
 {
-	std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
+	std::cout << GRAY << "ShrubberyCreationForm copy constructor called" << RESET << std::endl;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
@@ -34,13 +34,13 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 		AForm::operator=(other);
 		_target = other._target;
 	}
-	std::cout << "ShrubberyCreationForm copy assignment operator called" << std::endl;
+	std::cout << GRAY << "ShrubberyCreationForm copy assignment operator called" << RESET << std::endl;
 	return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
+	std::cout << GRAY << "ShrubberyCreationForm destructor called" << RESET << std::endl;
 }
 	
 void ShrubberyCreationForm::beExecuted() const
@@ -69,5 +69,5 @@ std::string ShrubberyCreationForm::getTarget() const
 
 std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &form)
 {
-	return out << form.getTarget() + " " << form.getName() << "needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.");
+	return out << YELLOW << form.getTarget() + " " << form.getName() << "needs a grade " << form.getGradeToSign() << " to be signed, and a grade " << form.getGradeToExecute() << " to be executed and it" << (form.getIsSigned() ? "'s already signed." : " isn't signed yet.") << RESET;
 }
