@@ -6,26 +6,23 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 17:50:58 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/05/28 13:34:05 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:16:05 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-
-
-
 //default constructor
 Intern::Intern()
 {
-	std::cout << "Intern created with a default constructor" << std::endl;
+	std::cout << GRAY << "Intern created with a default constructor" << RESET << std::endl;
 }
 
 //copy constructor
 Intern::Intern(const Intern &other)
 {
 	*this = other; // Use assignment operator to copy
-	std::cout << "Intern copy constructor called" << std::endl;
+	std::cout << GRAY << "Intern copy constructor called" << RESET << std::endl;
 
 }
 
@@ -34,14 +31,14 @@ Intern &Intern::operator=(const Intern &other)
 {
 	if (this == &other)
 		return *this; // Handle self-assignment
-	std::cout << "Intern assignment operator called" << std::endl;
+	std::cout << GRAY << "Intern assignment operator called" << RESET << std::endl;
 	return *this;
 }
 
 //destructor
 Intern::~Intern()
 {
-	std::cout << "Intern destructor called" << std::endl;
+	std::cout << GRAY << "Intern destructor called" << RESET << std::endl;
 }
 
 //member functions:
